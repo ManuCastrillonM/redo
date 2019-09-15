@@ -1,0 +1,13 @@
+# images dimensions
+img_width: 512
+img_height: 384
+
+# data directories
+train_data_dir: './dataset/train'
+test_data_dir: './dataset/test'
+validation_data_dir: './dataset/validation'
+original_data_dir: './dataset-resized'
+
+# hyperparams config
+batch_size: 16
+epochs: 20
