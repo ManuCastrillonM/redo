@@ -96,10 +96,9 @@ def augmentData():
 
   # aug configurations
   seq = iaa.Sequential([
-    iaa.Affine(scale=(0.8, 1.3), mode=['edge']), # Scale images to a value between 80% and 150%
+    iaa.Affine(scale=(0.8, 1.1), mode=['edge']), # Scale images to a value between 80% and 150%
     iaa.Affine(translate_percent={"x": (-0.1, 0.1), "y": (-0.1, 0.1)}, mode=['edge']), # Translate images by -10 to +10% on x- and y-axis independently
     iaa.Affine(rotate=(-25, 25), mode=['edge']), # Rotate images by -45 to 45 degrees
-    iaa.AdditiveGaussianNoise(scale=(0, 0.01*255)), # Add gaussian noise to an image, sampled once per pixel from a normal distribution N(0, s), where s is sampled per image and varies between 0 and 0.05*255
     iaa.Fliplr(0.5), # Flip 50% of all images horizontally
     iaa.Flipud(0.5) # Flip 50% of all images vertically
   ], random_order=True)

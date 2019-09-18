@@ -21,13 +21,13 @@ def buildModel():
 
   top_model = base_model.output
   top_model = Flatten(name="Flatten")(top_model)
-  top_model = Dense(512, activation='relu')(top_model)
   top_model = Dense(256, activation='relu')(top_model)
+  top_model = Dense(128, activation='relu')(top_model)
   top_model = Dense(6, activation='softmax')(top_model)
 
   model = Model(inputs=base_model.input, outputs=top_model)
 
-  model.summary()
+  # model.summary()
 
   model.compile(loss='categorical_crossentropy',
                 optimizer='adam',
