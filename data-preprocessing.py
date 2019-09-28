@@ -116,4 +116,4 @@ if __name__ == '__main__':
   params = utils.yaml_to_dict('config.yml')
 
   createStratifiedData()
-  augmentData()
+  # augmentData()

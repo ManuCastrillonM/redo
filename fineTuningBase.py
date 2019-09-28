@@ -37,9 +37,20 @@ def buildModel():
 
 
 def generateData(batch_size):
-  train_datagen = ImageDataGenerator(rescale=1. / 255)
-  validation_datagen = ImageDataGenerator(rescale=1. / 255)
 
+  train_datagen = ImageDataGenerator(
+    fill_mode = "nearest",
+    horizontal_flip=True,
+    rescale=1. /255,
+    rotation_range=30,
+    shear_range=0.2,
+    zoom_range=0.3)
+
+  ## No augmentations config
+  # train_datagen = ImageDataGenerator(rescale=1. / 255)
+
+  validation_datagen = ImageDataGenerator(rescale=1. / 255)
+  
   train_generator = train_datagen.flow_from_directory(
     params['train_data_dir'],
     target_size=(params['img_width'], params['img_height']),
